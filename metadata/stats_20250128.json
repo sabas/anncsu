@@ -1,0 +1,28 @@
+{
+  "data_rilascio": "20250128",
+  "data_elaborazione": "2025-10-15T15:26:41.258428",
+  "chunk_size_usato": 5000,
+  "file_input": {
+    "indirizzi": "INDIR_ITA_20250128.parquet",
+    "strade": "STRAD_ITA_20250128.parquet"
+  },
+  "statistiche": {
+    "tot_comuni": 7891,
+    "tot_strade": 1212812,
+    "tot_civici": 26713472,
+    "tot_civici_con_coord": 1107125,
+    "comuni_con_civici_georef": 1377,
+    "strade_per_comune": {
+      "media": 153.69560258522367,
+      "mediana": 94.0,
+      "min": 3,
+      "max": 16194
+    },
+    "civici_per_comune": {
+      "media": 3385.7378960709757,
+      "mediana": 1771.0,
+      "min": 1,
+      "max": 541913
+    }
+  }
+}
