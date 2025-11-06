@@ -36,8 +36,22 @@ def main():
 
     args = parser.parse_args()
 
+    # Determina il percorso di output
     if args.output is None:
-        args.output = f"report_comuni_{args.data}.csv"
+        # Default: cartella corrente + nome file standard
+        output_path = f"report_comuni_{args.data}.csv"
+    else:
+        # Espandi il percorso e uniscilo all'input_dir se relativo
+        output_path = args.output if os.path.isabs(args.output) else os.path.join(args.input_dir, args.output)
+
+    # Verifica se output_path è una directory esistente
+    if os.path.isdir(output_path):
+        # Se sì, salva dentro di essa con il nome file predefinito
+        output_file = f"report_comuni_{args.data}.csv"
+        output_path = os.path.join(output_path, output_file)
+    elif os.path.dirname(output_path) and not os.path.isdir(os.path.dirname(output_path)):
+        # Crea la directory padre se non esiste
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
     strad_file = os.path.join(args.input_dir, f"STRAD_ITA_{args.data}.parquet")
     indir_file = os.path.join(args.input_dir, f"INDIR_ITA_{args.data}.parquet")
@@ -94,7 +108,6 @@ def main():
         })
 
     report_df = pd.DataFrame(report_data)
-    output_path = args.output if os.path.isabs(args.output) else os.path.join(args.input_dir, args.output)
     report_df.to_csv(output_path, index=False)
     print(f"✅ Report per comune salvato in: {output_path}")
 

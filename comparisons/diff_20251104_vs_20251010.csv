@@ -1,0 +1,6 @@
+metrica,vecchia,nuova,delta
+tot_comuni,7893,7893,0
+tot_strade,1214312,1214421,109
+tot_civici,27949315,27956698,7383
+tot_civici_con_coord,1518371,1725758,207387
+comuni_con_civici_georef,1564,1436,-128
