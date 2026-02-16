@@ -1,2 +1,4 @@
 *.parquet
 .venv
+INDIR_ITA*
+STRAD_ITA*
